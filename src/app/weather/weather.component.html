@@ -1,0 +1,30 @@
+<main class="main-content">
+<form class="form" [formGroup]="form" (submit)="makeRequest()">
+  <input class="cityInput" placeholder="Search city" type="text" formControlName="city">
+  <p class="required-field-error" *ngIf="form.get('city')?.errors?.['required'] && form?.get('city')?.touched">Field is required!</p>
+  <p class="not-found-err">{{notFoundErrorMessage}}</p>
+</form>
+<div class="weather-main-div" *ngIf="isRequestMade || initialRequest">
+  <div class="top-city-info">
+    <div class="location-city-div">
+      <div class="location-and-city">
+        <i class="material-icons location-icon">location_on</i>
+        <p class="city-name">{{currentWeather?.name}}</p>
+      </div>
+      <p class="date">{{currentDate | date: 'EEEE, MMMM d, h:mm a'}}</p>
+      <img class="rectangle-asset" src="assets/rectangle2.png" alt="">
+      <img class="rectangleDesktop-asset" src="assets/rectangleDesktop.png" alt="">
+      <img class="rectangleSunDesktop-asset" src="assets/orangeSunDesktop.png" alt="">
+    </div>
+
+  </div>
+
+  <div class="weather-description">
+    <p><span class="weather-informations temp">Temperature:</span> {{currentWeather?.['main']?.temp | toCelsius }} ℃</p>
+    <p><span class="weather-informations">Min. Temperature:</span> {{currentWeather?.['main']?.temp_min | toCelsius }} ℃</p>
+    <p><span class="weather-informations">Max. Temperature:</span> {{currentWeather?.['main']?.temp_max | toCelsius }} ℃</p>
+    <p><span class="weather-informations">Description:</span> {{currentWeather?.weather?.[0]?.description}}</p>
+    <img class="weather-image" [src]="imagePath">
+  </div>
+</div>
+</main>
