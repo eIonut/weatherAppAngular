@@ -151,13 +151,20 @@
 form p {
   padding-top: 24px;
 }
+//
+//.rectangle-asset{
+//  width: 61px;
+//  height: 61px;
+//  position: relative;
+//}
 
-.rectangle-asset{
-  position: relative;
-  width: 61px;
+.rectangleDesktop-asset{
+  display: block;
   height: 61px;
-  top: -116px;
-  right: -373px;
+  width: 61px;
+  position: relative;
+  right: 30px;
+  top: 60px;
 }
 
 .location-and-city {
@@ -168,9 +175,10 @@ form p {
 .location-city-div{
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.rectangleDesktop-asset, .rectangleSunDesktop-asset {
+.rectangleSunDesktop-asset {
   display: none;
 }
 
@@ -216,6 +224,8 @@ form p {
 
   .rectangleDesktop-asset{
     display: block;
+    width: 281px;
+    height: 303px;
     position: relative;
     right: -369px;
     top: -30px;
